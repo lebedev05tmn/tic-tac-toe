@@ -18,3 +18,12 @@ export const StyledButton = styled.button`
     background-color: #333333;
   }
 `;
+
+export const StyledSteps = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 70vw;
+  top: 140px;
+  gap: 20px;
+`;
