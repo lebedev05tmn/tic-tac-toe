@@ -5,6 +5,9 @@ import calculateWinner from "../../helper/helper";
 import Modal from "../modal/modal";
 
 const index = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const myAudio = new Audio(require("../../../media/music.mp3"));
+myAudio.loop = true;
+
 let indexArray = index.slice();
 const Field: React.FC = () => {
   const [field, setField] = useState(Array(9).fill(null));
@@ -13,6 +16,7 @@ const Field: React.FC = () => {
   const [modalProps, setModalProps] = useState<boolean | null | undefined>(
     null
   );
+  const [isStart, setIsStart] = useState(false);
   const [previousSteps, setPreviousSteps] = useState<any[]>([]);
   const winner = calculateWinner(field);
 
@@ -41,6 +45,7 @@ const Field: React.FC = () => {
     setField(Array(9).fill(null));
     setXIsNext(true);
     setIsRobot(false);
+    setIsStart(true);
     indexArray = index.slice();
     setPreviousSteps([]);
   };
@@ -49,6 +54,8 @@ const Field: React.FC = () => {
     return (
       <StyledButton
         onClick={() => {
+          myAudio.pause();
+          myAudio.play();
           handleStart();
         }}>
         Start New Game
@@ -73,6 +80,13 @@ const Field: React.FC = () => {
   });
 
   useEffect(() => {
+    if (modalProps !== null) {
+      setIsStart(false);
+      myAudio.pause();
+    }
+  }, [modalProps]);
+
+  useEffect(() => {
     if (winner) {
       handleStart();
       setTimeout(() => {
@@ -86,9 +100,14 @@ const Field: React.FC = () => {
       }, 100);
     }
   }, [xIsNext, winner]);
-
   return (
     <>
+      <StyledButton
+        onClick={() => {
+          myAudio.pause();
+        }}>
+        Отключить эту прекрасную музыку
+      </StyledButton>
       {modalProps !== null && (
         <Modal xIsWinner={modalProps} setState={setModalProps} />
       )}
@@ -111,16 +130,20 @@ const Field: React.FC = () => {
           )}
         </StyledSteps>
       )}
-      <StyledField>
-        {field.map((elem, i) => (
-          <Cell
-            key={i}
-            value={elem}
-            onClick={() => handleClick(i)}
-            isDisabled={field[i] !== null}
-          />
-        ))}
-      </StyledField>
+      {isStart ? (
+        <StyledField>
+          {field.map((elem, i) => (
+            <Cell
+              key={i}
+              value={elem}
+              onClick={() => handleClick(i)}
+              isDisabled={field[i] !== null}
+            />
+          ))}
+        </StyledField>
+      ) : (
+        "Запсутите игру!"
+      )}
       <StartNewGame />
       <StartNewGameWithRobot />
     </>

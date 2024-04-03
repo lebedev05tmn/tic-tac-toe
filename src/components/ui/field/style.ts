@@ -11,11 +11,11 @@ export const StyledField = styled.div`
 export const StyledButton = styled.button`
   width: 250px;
   height: 50px;
-  background-color: #222222;
+  background-color: ${props => props.theme.buttonColor};
   color: white;
-  border: 1px solid white;
+  border: 1px solid ${props => props.theme.fontColorBlack};
   &:hover {
-    background-color: #333333;
+    background-color: ${props => props.theme.buttonColorHoverActive};
   }
 `;
 
