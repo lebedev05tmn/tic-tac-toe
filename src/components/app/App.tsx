@@ -2,6 +2,8 @@ import React from "react";
 import { GlobalStyle } from "./style";
 import Page from "../page/page";
 import { AppRoot, View, Panel, Group, Header } from "@vkontakte/vkui";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AppRoute } from "../../const";
 import "@vkontakte/vkui/dist/vkui.css";
 
 const App: React.FC = () => {
@@ -13,7 +15,13 @@ const App: React.FC = () => {
             mode="card"
             header={<Header mode="secondary">Tic tac toe</Header>}>
             <GlobalStyle />
-            <Page />
+            <BrowserRouter>
+              <Routes>
+                {Object.values(AppRoute).map((path: string) => (
+                  <Route path={path} element={<Page router={path} />} />
+                ))}
+              </Routes>
+            </BrowserRouter>
           </Group>
         </Panel>
       </View>

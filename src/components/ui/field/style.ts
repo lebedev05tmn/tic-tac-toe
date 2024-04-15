@@ -27,3 +27,14 @@ export const StyledSteps = styled.div`
   top: 140px;
   gap: 20px;
 `;
+
+export const StyledSelect = styled.select`
+  width: 250px;
+  height: 50px;
+  color: $ccc;
+  font-family: ${props => props.theme.fontFamily};
+  text-align: center;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: blue;
+`;
