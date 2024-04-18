@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./components/app/App";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./themes/default";
-
 import { AdaptivityProvider, ConfigProvider } from "@vkontakte/vkui";
 
 const root = ReactDOM.createRoot(

@@ -137,6 +137,12 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
                     setPreviousSteps(
                       previousSteps.slice(0, previousSteps.indexOf(step))
                     );
+                    setXIsNext(
+                      step.filter((elem: string | null) => elem !== null)
+                        .length %
+                        2 ===
+                        0
+                    );
                   }}>
                   {index} step
                 </StyledButton>
