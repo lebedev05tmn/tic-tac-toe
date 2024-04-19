@@ -25,15 +25,15 @@ const Page: React.FC<Props> = ({ router }) => {
     <>
       <StyledPage>
         <Header />
-        {AppRoute.GAME === router && (
+        {AppRoute.ИГРА === router && (
           <Field
             setX={setCountOfWinX}
             setO={setCountOfWinO}
             setDraws={setCountOfDraws}
           />
         )}
-        {AppRoute.TUTORIAL === router && <Tutorial />}
-        {AppRoute.COUNTER === router && (
+        {AppRoute.ТУТОРИАЛ === router && <Tutorial />}
+        {AppRoute.СЧЁТЧИК === router && (
           <Counter x={countOfWinX} o={countOfWinO} draws={countOfDraws} />
         )}
       </StyledPage>

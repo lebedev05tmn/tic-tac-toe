@@ -1,46 +1,116 @@
-# Getting Started with Create React App
+# Логическая игра `Крестики-нолики`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## О проекте
 
-## Available Scripts
+Используемые технологии:
 
-In the project directory, you can run:
+    - React
+    - React-router-dom
+    - TypeScript
+    - Styled Components
+    - VKUI
+    - Local Storage
 
-### `npm start`
+Реализована архитектура: `Flux`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Искусственный интеллект реализован в виде алгоритма: `minimax`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Приложение представляет из себя реализацию игры `Крестики-нолики` с дополнительными пользовательскими интерфейсами.
 
-### `npm test`
+Этот проект был загружен с помощью [Create React App](https://github.com/facebook/create-react-app).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Проблемы проекта
 
-### `npm run build`
+- Было задумано реализовать приложение в VK mini-apps.
+- Но VK Mini Apps не поддерживает интерфейс Audio из Web Api.
+- Поэтому пришлось отказаться от хостинга в пользу Vercel.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Предпросмотр
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Приложение состоит из нескольких компонентов:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Меню:
 
-### `npm run eject`
+### Роутинг по приложению
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Меню](/assets/menu.png "Menu")
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Поле
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Поле для игры в `Крестики-нолики`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Поле](/assets/field.png "Field")
 
-## Learn More
+- Туториал
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Туториал по правилам и тактикам игры
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Туториал](/assets/tutorial.png "Tutorial")
+
+- Счётчик
+
+### Счётчик побед и ничьей
+
+![Счётчик](/assets/counter.png "Counter")
+
+## Установка и запуск
+
+Для того, чтобы установить проект к себе на устройство, выполните команду:
+
+```shell
+git clone https://github.com/lebedev05tmn/tic-tac-toe.git
+```
+
+В каталоге проекта вы можете запустить приложение, выполнив команду:
+
+```shell
+npm start
+```
+
+Перед первым запуском приложения установите зависимостиы, выполнив командуЖ
+
+```shell
+npm install
+```
+
+Откройте [http://localhost:3000](http://localhost:3000), чтобы просмотреть его в браузере.
+
+Страница будет перезагружена, если вы внесете изменения.\
+Вы также увидите все ошибки lint в консоли.
+
+```shell
+npm test
+```
+
+Запускает программу запуска тестов в режиме интерактивного просмотра.\
+Дополнительную информацию смотрите в разделе о [выполнении тестов](https://facebook.github.io/create-react-app/docs/running-tests).
+
+```shell
+npm run build
+```
+
+Создает приложение для рабочей среды в папке "build".\
+Это корректно объединяет React в рабочем режиме и оптимизирует сборку для достижения наилучшей производительности.
+
+Сборка сокращена, а имена файлов содержат хэши.\
+Ваше приложение готово к развертыванию!
+
+Смотрите раздел о [развертывании](https://facebook.github.io/create-react-app/docs/deployment) для получения дополнительной информации.
+
+```shell
+npm run eject
+```
+
+**Примечание: это односторонняя операция. Выполнив `извлечение`, вы не сможете вернуться назад!**
+
+Если вас не устраивает инструмент сборки и выбранная конфигурация, вы можете "извлечь" ее в любое время. Эта команда удалит зависимость от одиночной сборки из вашего проекта.
+
+Вместо этого он скопирует все файлы конфигурации и переходные зависимости (webpack, Babel, ESLint и т.д.) прямо в ваш проект, чтобы вы имели полный контроль над ними. Все команды, кроме "извлечь", по-прежнему будут работать, но они будут указывать на скопированные скрипты, чтобы вы могли их настроить. На данный момент вы сами по себе.
+
+Вам не нужно использовать `извлечение`. Разработанный набор функций подходит для небольших и средних предприятий, и вы не должны чувствовать себя обязанным использовать эту функцию. Однако мы понимаем, что этот инструмент был бы бесполезен, если бы вы не могли настроить его, когда будете к этому готовы.
+
+## Узнайте больше
+
+Вы можете узнать больше в [Документации по созданию приложения React](https://facebook.github.io/create-react-app/docs/getting-started).
+
+Чтобы изучить React, ознакомьтесь с [документацией по React](https://reactjs.org/).

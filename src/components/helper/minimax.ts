@@ -1,5 +1,5 @@
 // Функция, которая определяет, является ли текущая позиция на доске победной для определенного игрока (X или O)
-function isWinner(board: any[], player: string) {
+const isWinner = (board: any[], player: string) => {
   // Проверяем все возможные комбинации победы
   const winPositions = [
     [0, 1, 2],
@@ -19,15 +19,15 @@ function isWinner(board: any[], player: string) {
     }
   }
   return false; // если игрок не выиграл, возвращаем false
-}
+};
 
 // Функция, которая проверяет, является ли доска полной (нет пустых ячеек)
-function isBoardFull(board: any[]) {
+const isBoardFull = (board: any[]) => {
   return board.every(cell => cell !== null); // если каждая ячейка занята, возвращаем true
-}
+};
 
 // Функция, которая реализует алгоритм минимакса
-function minimax(board: any[], depth: number, maximizingPlayer: boolean) {
+const minimax = (board: any[], depth: number, maximizingPlayer: boolean) => {
   const humanPlayer = "O";
   const aiPlayer = "X";
 
@@ -63,16 +63,16 @@ function minimax(board: any[], depth: number, maximizingPlayer: boolean) {
     }
     return bestScore;
   }
-}
+};
 
 // Функция, которая возвращает индекс лучшего хода для компьютера
-function findBestMove(board: any[]) {
+const findBestMove = (board: any[]) => {
   let bestMove;
   let bestScore = -Infinity;
   for (let i = 0; i < board.length; i++) {
     if (board[i] === null) {
       board[i] = "X"; // делаем ход
-      const score = minimax(board, 0, false); // вычисляем оценку хода с помощью минимакса
+      const score = minimax(board, 0, false);
       board[i] = null; // отменяем ход
       if (score > bestScore) {
         bestScore = score;
@@ -81,8 +81,6 @@ function findBestMove(board: any[]) {
     }
   }
   return bestMove;
-}
-
-// Пример использования
+};
 
 export { findBestMove };

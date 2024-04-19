@@ -27,7 +27,7 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
   const [isStart, setIsStart] = useState(false);
   const [previousSteps, setPreviousSteps] = useState<any[]>([]);
   const [selectedMode, setSelectedMode] = useState<string>("standart");
-  const winner = calculateWinner(field);
+  const winner: number | null = calculateWinner(field);
 
   function handleClick(index: number): void {
     const fieldCopy = [...field];
@@ -71,7 +71,7 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
           handleStart();
           handleRobot(field);
         }}>
-        Start New Game
+        Новая игра
       </StyledButton>
     );
   };
@@ -120,7 +120,7 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
         onClick={() => {
           myAudio.pause();
         }}>
-        Отключить эту прекрасную музыку
+        Отключить музыку
       </StyledButton>
       {modalProps !== null && (
         <Modal xIsWinner={modalProps} setState={setModalProps} />
@@ -158,6 +158,7 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
               value={elem}
               onClick={() => handleClick(i)}
               isDisabled={field[i] !== null}
+              start={false}
             />
           ))}
         </StyledField>
@@ -166,15 +167,13 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
           {Array(9)
             .fill("")
             .map((elem, i) => (
-              <Cell
-                key={i}
-                value={elem}
-                onClick={() => console.log("Start the game!")}
-                isDisabled={true}
-              />
+              <Cell key={i} value={elem} isDisabled={true} start={true} />
             ))}
         </StyledField>
       )}
+      <h2 style={{ display: "flex", justifyContent: "center" }}>
+        Выберите режим игры
+      </h2>
       <StyledSelect
         value={selectedMode}
         onChange={e => {

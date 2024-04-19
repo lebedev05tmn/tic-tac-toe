@@ -18,7 +18,11 @@ const App: React.FC = () => {
             <BrowserRouter>
               <Routes>
                 {Object.values(AppRoute).map((path: string) => (
-                  <Route path={path} element={<Page router={path} />} />
+                  <Route
+                    key={path}
+                    path={path}
+                    element={<Page router={path} />}
+                  />
                 ))}
               </Routes>
             </BrowserRouter>

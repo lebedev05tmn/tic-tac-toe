@@ -14,7 +14,7 @@ const Counter: React.FC<IProps> = ({ x, o, draws }) => {
         Побед у O: <span>{o}</span>
       </p>
       <p>
-        Ничей: <span>{draws}</span>
+        Ничьей: <span>{draws}</span>
       </p>
     </div>
   );

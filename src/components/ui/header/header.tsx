@@ -7,7 +7,7 @@ const Header: React.FC = () => {
     <StyledHeader>
       <StyledList>
         {Object.entries(AppRoute).map((path: string[]) => (
-          <StyledLi>
+          <StyledLi key={`link-${path[1]}`}>
             <StyledLink to={path[1]}>{path[0]}</StyledLink>
           </StyledLi>
         ))}

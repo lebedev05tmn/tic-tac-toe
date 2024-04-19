@@ -12,10 +12,10 @@ const Modal: React.FC<Props> = ({ xIsWinner, setState }) => {
       <ModalCardBase
         header={
           xIsWinner && xIsWinner !== undefined
-            ? `X is winner`
+            ? `X победил!`
             : !xIsWinner && xIsWinner !== undefined
-            ? `O is winner`
-            : `Draw`
+            ? `O победил!`
+            : `Ничья`
         }
         dismissButtonMode="inside"
         style={{
@@ -32,7 +32,7 @@ const Modal: React.FC<Props> = ({ xIsWinner, setState }) => {
           onClick={() => {
             setState(null);
           }}>
-          Reset the Field
+          Очистить поле
         </Button>
       </ModalCardBase>
     </>

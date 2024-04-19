@@ -3,7 +3,7 @@ type RouteObject = {
 };
 
 export const AppRoute: RouteObject = {
-  GAME: "/",
-  TUTORIAL: "/tutorial",
-  COUNTER: "/counter",
+  ИГРА: "/",
+  ТУТОРИАЛ: "/tutorial",
+  СЧЁТЧИК: "/counter",
 };
