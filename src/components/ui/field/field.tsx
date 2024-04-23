@@ -68,8 +68,8 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
       <StyledButton
         onClick={() => {
           myAudio.play();
-          handleStart();
           handleRobot(field);
+          handleStart();
         }}>
         Новая игра
       </StyledButton>
