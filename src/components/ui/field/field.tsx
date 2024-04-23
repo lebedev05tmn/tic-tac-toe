@@ -178,6 +178,7 @@ const Field: React.FC<IField> = ({ setX, setO, setDraws }) => {
         value={selectedMode}
         onChange={e => {
           setSelectedMode(e.target.value);
+          handleStart();
         }}>
         <option value="standart">Игра вдвоём</option>
         <option value="simple-bot">Робот (Уровень: Простой)</option>
